@@ -1,0 +1,4 @@
+Ryu,Pitcher,14
+Lee,Hitter,0.253,13
+Kang,Pitcher,10
+Choo,Hitter,0.285,21
