@@ -27,7 +27,6 @@ class Players(object):
         for i in self.p:
             result = result + str(i) + "\n"
         return result
-
     def addPlayer(self, p):
         self.p.append(p)
     def sortPlayersBySalary(self):
@@ -50,11 +49,12 @@ def loadPlayers(dataFile):
         player_list.append(player)
     return Players(player_list)
 
-print ("--- Player Lists --- ")
+out1 = open("datas/PlayerList.txt", 'w')
+out1.write("--- Player Lists --- \n")
 players = loadPlayers("data.txt")
 players.addPlayer(Pitcher("Oh", 5))
-print(players)
+out1.write(str(players))
 players.addPlayer(Hitter("Park"))
-print ("\n--- Player Lists (Sorted by Salary) --- ")
+out1.write("\n--- Player Lists (Sorted by Salary) --- \n")
 players.sortPlayersBySalary()
-print(players)
+out1.write(str(players))

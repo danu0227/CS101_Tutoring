@@ -1,0 +1,60 @@
+breads = [] # Add bread
+menus = [] # Add menus
+vegetables = [] # Add vegetables
+sauces = [] # Add sauces
+cheeses = [] # Add cheeses
+price = {} # Price dictionary for ingredients ex) 'Chicken':2500
+calorie_info = {} # Calorie dictionary for all the ingredients ex) 'Flat':10 ...
+
+
+class Sandwich:
+    """Sandwiches"""
+
+    def __init__(self, bread, menu, vegetable_l, cheese, sauce, set_=False):
+        ### Implement here ###
+        pass
+
+
+    def price(self):
+        ### Implement here ###
+        pass
+
+    def calorie(self):
+        ### Implement here ###
+        pass
+    def __str__(self):
+        return "%s sandwich - price: %d won, calorie: %d kcal" %(self.menu, self.price(), self.calorie())
+
+while True:
+    a = input('would you like to order? ')
+    if a == 'y' or a == 'Y':
+        menu = ""
+        while menu not in menus:
+            menu = input('which menu? ')
+        bread = ""
+        while bread not in breads:
+            bread = input('which bread? ')
+        veges = []
+        while True:
+            vege = ""
+            while vege not in vegetables + ['done']:
+                vege = input("which vegetables? (if you are done, type done) ")
+                veges.append(vege)
+            if veges[-1] == 'done':
+                veges.remove('done')
+                break
+        cheese = ""
+        while cheese not in cheeses:
+            cheese = input('which cheese? ')
+        sauce = ""
+        while sauce not in sauces:
+            sauce = input('which sauce? ')
+        set_ = input('do you want set menu? ')
+        if set_ == 'y' or set_ == 'Y':
+            set_ = True
+        else:
+            set_ = False
+        sandwich = Sandwich(bread, menu, veges, cheese, sauce, set_=set_)
+        print(sandwich)
+    else:
+        break

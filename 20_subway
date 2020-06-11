@@ -1,0 +1,73 @@
+breads = ['Wheet', 'White', 'Oat', 'Flat']
+ingredients = ['Chicken', 'Tuna', 'Beef', 'Egg']
+vegetables = ['Lettuce', 'Tomatoe', 'Cucumber', 'Pepper', 'Onion', 'Pickle', 'Olive', 'Jalapenos']
+sauces = ['Ranch', 'Sweet', 'Spicy', 'Sour']
+cheeses = ['American', 'Shredded']
+price = {'Chicken': 3500, 'Tuna': 3000, 'Beef': 4000, 'Egg': 2500}
+calorie_info = {'Wheet': 20, 'White': 10, 'Oat': 8, 'Flat': 12, 'Chicken': 18, 'Tuna': 20, 'Beef': 38, 'Egg': 15,
+            'Lettuce': 3, 'Tomatoe': 2, 'Cucumber': -3, 'Pepper': 0, 'Onion': 1, 'Pickle': 7, 'Olive': 2,
+            'Jalapenos': 3, 'Ranch': 20, 'Sweet': 12, 'Spicy': 8, 'Sour': 3, 'American': 17, 'Shredded': 15}
+
+
+class Sandwich:
+    """Sandwiches"""
+
+    def __init__(self, bread, ingredient, vegetable_l, cheese, sauce, set_=False):
+        self.bread = bread
+        self.ingredient = ingredient
+        self.vegetables = vegetable_l
+        self.cheese = cheese
+        self.sauce = sauce
+        self.set = set_
+
+    def price(self):
+        if self.set:
+            return price[self.ingredient] + 1000
+        else:
+            return price[self.ingredient]
+
+    def calorie(self):
+        cal = 0
+        cal += calorie_info[self.bread]
+        cal += calorie_info[self.ingredient]
+        for vege in self.vegetables:
+            cal += calorie_info[vege]
+        cal += calorie_info[self.sauce]
+        cal += calorie_info[self.cheese]
+        return cal
+    def __str__(self):
+        return "%s sandwich - price: %d won, calorie: %d kcal" %(self.ingredient, self.price(), self.calorie())
+
+while True:
+    a = input('would you like to order? ')
+    if a == 'y' or a == 'Y':
+        ingredient = ""
+        while ingredient not in ingredients:
+            ingredient = input('which menu? ')
+        bread = ""
+        while bread not in breads:
+            bread = input('which bread? ')
+        veges = []
+        while True:
+            vege = ""
+            while vege not in vegetables + ['done']:
+                vege = input("which vegetables? (if you are done, type done) ")
+                veges.append(vege)
+            if veges[-1] == 'done':
+                veges.remove('done')
+                break
+        cheese = ""
+        while cheese not in cheeses:
+            cheese = input('which cheese? ')
+        sauce = ""
+        while sauce not in sauces:
+            sauce = input('which sauce? ')
+        set_ = input('do you want set menu? ')
+        if set_ == 'y' or set_ == 'Y':
+            set_ = True
+        else:
+            set_ = False
+        sandwich = Sandwich(bread, ingredient, veges, cheese, sauce, set_=set_)
+        print(sandwich)
+    else:
+        break

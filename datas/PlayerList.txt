@@ -1,0 +1,14 @@
+--- Player Lists --- 
+Ryu (Pitcher) / Wins : 14, Salary : $140000
+Lee (Hitter) / BatAvg : 0.253, HomeRuns : 13, Salary : $77300
+Kang (Pitcher) / Wins : 10, Salary : $100000
+Choo (Hitter) / BatAvg : 0.285, HomeRuns : 21, Salary : $112500
+Oh (Pitcher) / Wins : 5, Salary : $50000
+
+--- Player Lists (Sorted by Salary) --- 
+Ryu (Pitcher) / Wins : 14, Salary : $140000
+Choo (Hitter) / BatAvg : 0.285, HomeRuns : 21, Salary : $112500
+Kang (Pitcher) / Wins : 10, Salary : $100000
+Lee (Hitter) / BatAvg : 0.253, HomeRuns : 13, Salary : $77300
+Oh (Pitcher) / Wins : 5, Salary : $50000
+Park (Hitter) / BatAvg : 0.000, HomeRuns : 0, Salary : $0
